@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Gallery</title>
+    <link rel="stylesheet" href="/Media/home.css">
+</head>
+
+<body>
+    <header>
+        <p>ARTISTS</p>
+    </header>
+
+    <div class="container">
+        {{range .}}
+        <a href="/artists/{{.ID}}" class="card">
+            <img src="{{.Image}}" alt="Image of {{.Name}}" class="card-img">
+            <div class="card-info">
+                <table>
+                    <tr>
+                        <td class="suj">Name:</td>
+                        <td class="card-title">{{.Name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="suj">Members:</td>
+                        <td>
+                            <ul class="members-list">
+                                {{range .Members}}
+                                <li>{{.}}</li>
+                                {{end}}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="suj">Creation Date:</td>
+                        <td class="card-detail">{{.CreationDate}}</td>
+                    </tr>
+                    <tr>
+                        <td class="suj">First Album:</td>
+                        <td class="card-detail">{{.FirstAlbum}}</td>
+                    </tr>
+                </table>
+            </div>
+        </a>
+        {{end}}
+    </div>
+</body>
+
+</html>
